@@ -1,0 +1,15 @@
+syntax = "proto2";
+
+package com.trueaccord;
+
+message MyTest {
+  optional string str1 = 1;
+  optional int32 my_int = 2;
+
+  message Nested {
+    optional int32 inside = 1;
+  }
+
+  optional Nested nested = 3;
+}
+
