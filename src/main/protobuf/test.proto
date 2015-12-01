@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package com.trueaccord;
 
+import "scalapb/scalapb.proto";
+
 message MyTest {
   optional string str1 = 1;
   optional int32 my_int = 2;
@@ -11,5 +13,7 @@ message MyTest {
   }
 
   optional Nested nested = 3;
+
+  optional string object_id = 4 [(scalapb.field).type = "com.trueaccord.ObjectId"];
 }
 

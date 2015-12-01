@@ -10,7 +10,8 @@ scalaVersion := "2.11.7"
 
 libraryDependencies ++= Seq(
   "com.trueaccord.lenses" %%% "lenses" % "0.4.4",
-  "com.trueaccord.scalapb" %%% "scalapb-runtime" % "0.5.15",
+  "com.trueaccord.scalapb" %%% "scalapb-runtime" % "0.5.16",
+  "com.trueaccord.scalapb" %%% "scalapb-runtime" % "0.5.16" % PB.protobufConfig,
   "com.lihaoyi" %%% "utest" % "0.3.1" % "test"
 )
 
