@@ -1,6 +1,9 @@
 This project is for testing and demoing ScalaPB over ScalaJS.
 
-The support for ScalaJS is still work in progress.
+Live demo
+---------
+
+Go to http://thesamet.github.io/scalapbjs-test/
 
 Run the utests
 --------------
@@ -12,6 +15,6 @@ Try in a browser
 
 In SBT, run `fastOptJS`
 
-Then open scalapb.html (from this directory) in a browser, and watch the
+Then open index-dev.html (from this directory) in a browser, and watch the
 console.
 
