@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.trueaccord;
+
+import "scalapb/scalapb.proto";
+
+message Food {
+  string name = 1;
+  string measure = 2;
+  int32 calories = 3 [(scalapb.field).type = "com.trueaccord.Calories"];
+}
+
+message Menu {
+  string menu_name = 1;
+  repeated Food foods = 2;
+}
