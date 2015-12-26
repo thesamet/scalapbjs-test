@@ -1,28 +1,26 @@
 package com.trueaccord
 
 import utest._
-import com.trueaccord.test.MyTest
+import com.trueaccord.foods._
 
 object JsTest extends TestSuite {
   val tests = TestSuite {
 
-    val t = MyTest().update(
-        _.str1 := "foobarbaz",
-        _.myInt := 15,
-        _.nested.inside := 17,
-        _.objectId := ObjectId("my_id")
-    )
+    val myMenu = Menu()
+      .update(
+        _.menuName := "Our menu",
+        _.foods := Seq(
+          Food().withName("Apple").withMeasure("1 unit (3\" dia)").withCalories(Calories(95)),
+          Food().withName("Chicken McNuggets").withMeasure("4 pieces (64 g)").withCalories(Calories(193)),
+          Food().withName("California Roll").withMeasure("8 sushies").withCalories(Calories(400))))
 
     'updateWorks {
-      assert(t == 
-        MyTest(str1 = Some("foobarbaz"), myInt = Some(15), 
-               nested = Some(MyTest.Nested(inside = Some(17))),
-               objectId = Some(ObjectId("my_id"))
-               ))
+      assert(myMenu.update(_.menuName := "Another menu") ==
+             myMenu.copy(menuName = "Another menu"))
     }
 
     'parseFromIsInverseOfByteArray {
-      assert(MyTest.parseFrom(t.toByteArray) == t)
+      assert(Menu.parseFrom(myMenu.toByteArray) == myMenu)
     }
   }
 }
