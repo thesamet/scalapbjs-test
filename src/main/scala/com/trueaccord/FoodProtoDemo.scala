@@ -4,10 +4,10 @@ import com.trueaccord.foods.{Food, Menu}
 import com.trueaccord.lenses.Mutation
 import org.scalajs.dom.html
 
-import scala.scalajs.js.annotation.JSExport
+import scala.scalajs.js.annotation.{JSExport, JSExportTopLevel}
 import scalatags.JsDom.all._
 
-@JSExport
+@JSExportTopLevel("com.trueaccord.FoodProtoDemo")
 object FoodProtoDemo extends {
   @JSExport
   def main(target: html.Div) = {
