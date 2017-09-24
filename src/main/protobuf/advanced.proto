@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.trueaccord;
+
+import "scalapb/scalapb.proto";
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+  string foo = 1000;
+}
+
+message MyMessage {
+  int32 my_field = 11 [(foo) = "abcdef"];
+}

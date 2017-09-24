@@ -2,6 +2,7 @@ package com.trueaccord
 
 import utest._
 import com.trueaccord.foods._
+import com.trueaccord.advanced._
 
 object JsTest extends TestSuite {
   val tests = TestSuite {
@@ -21,6 +22,12 @@ object JsTest extends TestSuite {
 
     'parseFromIsInverseOfByteArray {
       assert(Menu.parseFrom(myMenu.toByteArray) == myMenu)
+    }
+
+    'customOptionWorks {
+      assert(
+        MyMessage.scalaDescriptor.findFieldByName("my_field").get.getOptions
+        .extension(AdvancedProto.foo) == "abcdef")
     }
   }
 }
